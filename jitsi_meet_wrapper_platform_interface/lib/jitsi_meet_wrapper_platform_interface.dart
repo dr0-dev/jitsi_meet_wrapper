@@ -40,4 +40,8 @@ abstract class JitsiMeetWrapperPlatformInterface extends PlatformInterface {
   }) async {
     throw UnimplementedError('setAudioMuted has not been implemented.');
   }
+
+  Future<dynamic> hangup() async {
+    throw UnimplementedError('hangup has not been implemented.');
+  }
 }

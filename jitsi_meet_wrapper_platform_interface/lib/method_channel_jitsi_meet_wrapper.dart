@@ -71,6 +71,21 @@ class MethodChannelJitsiMeetWrapper extends JitsiMeetWrapperPlatformInterface {
     });
   }
 
+  @override
+  Future<dynamic> hangup() async {
+    return await _methodChannel
+        .invokeMethod<String>('hangup')
+        .then((message) {
+      return JitsiMeetingResponse(isSuccess: true, message: message);
+    }).catchError((error) {
+      return JitsiMeetingResponse(
+        isSuccess: true,
+        message: error.toString(),
+        error: error,
+      );
+    });
+  }
+
   void _initialize() {
     _eventChannel.receiveBroadcastStream().listen((message) {
       final data = message['data'];

@@ -29,6 +29,10 @@ class JitsiMeetWrapperViewController: UIViewController {
         self.sourceJitsiMeetView?.setAudioMuted(!enabled)
     }
     
+    func hangup() {
+        self.sourceJitsiMeetView?.hangUp()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.eventSink(["event": "opened"])

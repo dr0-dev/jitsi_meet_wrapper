@@ -32,4 +32,9 @@ class JitsiMeetWrapper {
     return await JitsiMeetWrapperPlatformInterface.instance
         .setAudioEnabled(enabled : enabled);
   }
+
+  static Future<dynamic> hangup() async {
+    return await JitsiMeetWrapperPlatformInterface.instance
+        .hangup();
+  }
 }

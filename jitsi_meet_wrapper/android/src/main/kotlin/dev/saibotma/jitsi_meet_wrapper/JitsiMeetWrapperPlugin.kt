@@ -43,6 +43,10 @@ class JitsiMeetWrapperPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                 val muteBroadcastIntent: Intent = BroadcastIntentHelper.buildSetAudioMutedIntent(!enabled)
                 LocalBroadcastManager.getInstance(this.activity?.applicationContext!!).sendBroadcast(muteBroadcastIntent)
             }
+            "hangup" -> {
+                val muteBroadcastIntent: Intent = BroadcastIntentHelper.buildHangUpIntent()
+                LocalBroadcastManager.getInstance(this.activity?.applicationContext!!).sendBroadcast(muteBroadcastIntent)
+            }
             else -> result.notImplemented()
         }
     }

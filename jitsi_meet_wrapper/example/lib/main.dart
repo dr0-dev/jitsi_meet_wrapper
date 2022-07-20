@@ -123,7 +123,7 @@ class _MeetingState extends State<Meeting> {
 
               },
               child: const Text(
-                "Enabled",
+                "Audio Enabled",
                 style: TextStyle(color: Colors.white),
               ),
               style: ButtonStyle(
@@ -132,6 +132,25 @@ class _MeetingState extends State<Meeting> {
               ),
             ),
           ),
+
+          SizedBox(
+            height: 64.0,
+            width: double.maxFinite,
+            child: ElevatedButton(
+              onPressed: () async {
+                await JitsiMeetWrapper.hangup();
+              },
+              child: const Text(
+                "Hangup",
+                style: TextStyle(color: Colors.white),
+              ),
+              style: ButtonStyle(
+                backgroundColor:
+                MaterialStateColor.resolveWith((states) => Colors.blue),
+              ),
+            ),
+          ),
+
           const SizedBox(height: 48.0),
         ],
       ),

@@ -34,6 +34,8 @@ public class SwiftJitsiMeetWrapperPlugin: NSObject, FlutterPlugin, FlutterStream
             jitsiViewController?.setAudioEnabled(enabled)
             
             return
+        } else if (call.method == "hangup") {
+            jitsiViewController?.hangup()
         }
     }
 
