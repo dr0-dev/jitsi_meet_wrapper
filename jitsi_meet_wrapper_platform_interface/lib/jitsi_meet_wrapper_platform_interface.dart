@@ -34,4 +34,10 @@ abstract class JitsiMeetWrapperPlatformInterface extends PlatformInterface {
   }) async {
     throw UnimplementedError('joinMeeting has not been implemented.');
   }
+
+  Future<dynamic> setAudioEnabled({
+    required bool enabled,
+  }) async {
+    throw UnimplementedError('setAudioMuted has not been implemented.');
+  }
 }

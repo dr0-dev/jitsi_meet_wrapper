@@ -38,6 +38,11 @@ class JitsiMeetWrapperPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
         when (call.method) {
             "joinMeeting" -> joinMeeting(call, result)
+            "setAudioEnabled" -> {
+                val enabled = call.argument<Boolean>("enabled")!!
+                val muteBroadcastIntent: Intent = BroadcastIntentHelper.buildSetAudioMutedIntent(!enabled)
+                LocalBroadcastManager.getInstance(this.activity?.applicationContext!!).sendBroadcast(muteBroadcastIntent)
+            }
             else -> result.notImplemented()
         }
     }

@@ -27,4 +27,9 @@ class JitsiMeetWrapper {
     return await JitsiMeetWrapperPlatformInterface.instance
         .joinMeeting(options: options, listener: listener);
   }
+
+  static Future<dynamic> setAudioEnabled({required bool enabled}) async {
+    return await JitsiMeetWrapperPlatformInterface.instance
+        .setAudioEnabled(enabled : enabled);
+  }
 }

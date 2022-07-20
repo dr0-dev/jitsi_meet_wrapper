@@ -23,8 +23,8 @@ class Meeting extends StatefulWidget {
 }
 
 class _MeetingState extends State<Meeting> {
-  final serverText = TextEditingController();
-  final roomText = TextEditingController(text: "jitsi-meet-wrapper-test-room");
+  final serverText = TextEditingController(text: "https://room.bnesim.com/");
+  final roomText = TextEditingController(text: "444029601");
   final subjectText = TextEditingController(text: "My Plugin Test Meeting");
   final tokenText = TextEditingController();
   final userDisplayNameText = TextEditingController(text: "Plugin Test User");
@@ -110,6 +110,25 @@ class _MeetingState extends State<Meeting> {
               style: ButtonStyle(
                 backgroundColor:
                     MaterialStateColor.resolveWith((states) => Colors.blue),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 64.0,
+            width: double.maxFinite,
+            child: ElevatedButton(
+              onPressed: () async {
+
+                await JitsiMeetWrapper.setAudioEnabled(enabled: true);
+
+              },
+              child: const Text(
+                "Enabled",
+                style: TextStyle(color: Colors.white),
+              ),
+              style: ButtonStyle(
+                backgroundColor:
+                MaterialStateColor.resolveWith((states) => Colors.blue),
               ),
             ),
           ),

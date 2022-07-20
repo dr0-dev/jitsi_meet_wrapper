@@ -51,6 +51,26 @@ class MethodChannelJitsiMeetWrapper extends JitsiMeetWrapperPlatformInterface {
     });
   }
 
+  @override
+  Future<dynamic> setAudioEnabled({
+    required bool enabled
+  }) async {
+    Map<String, dynamic> _options = {
+      'enabled': enabled
+    };
+    return await _methodChannel
+        .invokeMethod<String>('setAudioEnabled', _options)
+        .then((message) {
+      return JitsiMeetingResponse(isSuccess: true, message: message);
+    }).catchError((error) {
+      return JitsiMeetingResponse(
+        isSuccess: true,
+        message: error.toString(),
+        error: error,
+      );
+    });
+  }
+
   void _initialize() {
     _eventChannel.receiveBroadcastStream().listen((message) {
       final data = message['data'];
