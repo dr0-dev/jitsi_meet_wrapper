@@ -26,6 +26,14 @@ public class SwiftJitsiMeetWrapperPlugin: NSObject, FlutterPlugin, FlutterStream
         if (call.method == "joinMeeting") {
             joinMeeting(call, result: result)
             return
+        } else if (call.method == "setAudioEnabled") {
+            
+            let arguments = call.arguments as! [String: Any]
+            let enabled = arguments["enabled"] as! Bool
+            
+            jitsiViewController?.setAudioEnabled(enabled)
+            
+            return
         }
     }
 

@@ -7,6 +7,8 @@ class JitsiMeetWrapperViewController: UIViewController {
     fileprivate var pipViewCoordinator: CustomPiPViewCoordinator?
     fileprivate var jitsiMeetView: UIView?
 
+    fileprivate var sourceJitsiMeetView: JitsiMeetView?
+    
     let options: JitsiMeetConferenceOptions
     let eventSink: FlutterEventSink
 
@@ -23,6 +25,10 @@ class JitsiMeetWrapperViewController: UIViewController {
         fatalError("init(coder:) is not supported")
     }
 
+    func setAudioEnabled(_ enabled:Bool) {
+        self.sourceJitsiMeetView?.setAudioMuted(!enabled)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.eventSink(["event": "opened"])
@@ -39,7 +45,8 @@ class JitsiMeetWrapperViewController: UIViewController {
         let jitsiMeetView = AbsorbPointersView()
         jitsiMeetView.backgroundColor = .black
         self.jitsiMeetView = jitsiMeetView
-
+        self.sourceJitsiMeetView = sourceJitsiMeetView
+        
         jitsiMeetView.addSubview(sourceJitsiMeetView)
 
         // Make the jitsi view redraw when orientation changes.
