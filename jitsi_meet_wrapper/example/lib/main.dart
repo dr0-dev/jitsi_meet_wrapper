@@ -178,7 +178,37 @@ class _MeetingState extends State<Meeting> {
   _joinMeeting() async {
     String? serverUrl = serverText.text.trim().isEmpty ? null : serverText.text;
 
-    Map<FeatureFlag, Object> featureFlags = {};
+    Map<FeatureFlag, Object> featureFlags = {
+
+
+      FeatureFlag.areSecurityOptionsEnabled: false,
+      FeatureFlag.isAddPeopleEnabled: false,
+      FeatureFlag.isAndroidScreensharingEnabled : false,
+      FeatureFlag.isAudioMuteButtonEnabled: false,
+      FeatureFlag.isCalendarEnabled: false,
+      FeatureFlag.isCallIntegrationEnabled: false,
+      FeatureFlag.isChatEnabled: false,
+      FeatureFlag.isCloseCaptionsEnabled: true,
+      FeatureFlag.isConferenceTimerEnabled: false,
+      FeatureFlag.isFilmstripEnabled: true,
+      FeatureFlag.isFullscreenEnabled: false,
+      FeatureFlag.isHelpButtonEnabled: false,
+      FeatureFlag.isInviteEnabled: false,
+      FeatureFlag.isIosRecordingEnabled : false,
+      FeatureFlag.isIosScreensharingEnabled : false,
+      FeatureFlag.isMeetingNameEnabled: false,
+      FeatureFlag.isNotificationsEnabled: false,
+      FeatureFlag.isOverflowMenuEnabled: false,
+      FeatureFlag.isPipEnabled:true,
+      FeatureFlag.isRaiseHandEnabled: false,
+      FeatureFlag.isReactionsEnabled: false,
+      FeatureFlag.isRecordingEnabled: false,
+      FeatureFlag.isToolboxAlwaysVisible: false,
+      FeatureFlag.isToolboxEnabled: false,
+      FeatureFlag.isVideoMuteButtonEnabled: true,
+      FeatureFlag.isWelcomePageEnabled: false,
+
+    };
 
     // Define meetings options here
     var options = JitsiMeetingOptions(
