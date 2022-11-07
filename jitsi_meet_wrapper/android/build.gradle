@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -32,7 +32,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
 
     // Required by jitsi
     compileOptions {
@@ -51,11 +51,20 @@ android {
     defaultConfig {
         // Required by jitsi
         minSdkVersion 23
+        targetSdkVersion 32
     }
 }
 
 dependencies {
+    implementation "androidx.appcompat:appcompat:1.5.1"
+    // For loading and tinting drawables on older versions of the platform
+    implementation "androidx.appcompat:appcompat-resources:1.5.1"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     // From: https://github.com/jitsi/jitsi-maven-repository/tree/master/releases/org/jitsi/react/jitsi-meet-sdk
-    implementation ('org.jitsi.react:jitsi-meet-sdk:5.1.0') { transitive = true }
+    implementation ('org.jitsi.react:jitsi-meet-sdk:6.2.2') { transitive = true }
+    implementation "com.facebook.react:react-native:0.68.2"
+}
+
+configurations.all {
+    resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
 }

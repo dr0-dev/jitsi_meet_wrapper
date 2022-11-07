@@ -1,20 +1,15 @@
 package dev.saibotma.jitsi_meet_wrapper
 
 import android.app.Activity
-import android.app.PictureInPictureUiState
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.res.Configuration
 import android.os.Bundle
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import org.jitsi.meet.sdk.BroadcastEvent
 import org.jitsi.meet.sdk.JitsiMeetActivity
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions
-import java.util.HashMap
-import android.util.Log
-import androidx.lifecycle.Lifecycle
 import org.jitsi.meet.sdk.BroadcastIntentHelper
 
 
